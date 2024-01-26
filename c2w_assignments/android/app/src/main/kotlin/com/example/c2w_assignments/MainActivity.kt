@@ -1,0 +1,6 @@
+package com.example.c2w_assignments
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
