@@ -10,6 +10,7 @@ class Assignment4 extends StatefulWidget {
 class _Assignment4State extends State<Assignment4> {
   int boxColorIndex1 = 0;
   int boxColorIndex2 = 0;
+
   List<Color> boxColor1 = [
     Colors.black,
     Colors.red,
