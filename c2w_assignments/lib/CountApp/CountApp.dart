@@ -62,7 +62,7 @@ class _CountAppState extends State<CountApp> {
         for (int j = 1; j <= t; j++) {
           f = f * j;
         }
-        sum = sum + (t * t * t);
+        sum = sum + f;
 
         i = i ~/ 10;
       }
