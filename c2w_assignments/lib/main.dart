@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 //import 'package:c2w_assignments/Stateful_Assignments/assignment4.dart';
 //import 'package:c2w_assignments/CountApp/CountApp.dart';
 //import 'package:c2w_assignments/InstagramHomePage/InstagramHomePage.dart';
-import 'package:c2w_assignments/NetfilxHomePage/NetfilxHomepage.dart';
+import 'package:c2w_assignments/NetfilxHomePage/netfilxHomepage.dart';
 
 void main() {
   runApp(const MyApp());
