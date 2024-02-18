@@ -16,6 +16,7 @@ class _InstagramHomePageState extends State<InstagramHomePage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        
         backgroundColor: Colors.black,
         title: Text(
           "Instagram",
