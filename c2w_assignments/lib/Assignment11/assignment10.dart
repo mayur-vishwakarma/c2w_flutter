@@ -10,7 +10,7 @@ class Assignment11AppBar10 extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(color: Colors.red, width: 5),
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
             color: Colors.blue,
           ),
