@@ -15,10 +15,23 @@ class _Code1State extends State<Code1> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        bottom: const PreferredSize(
+          preferredSize: Size(50, 50),
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              "Appbar Bottom",
+              style: TextStyle(
+                  color: Colors.amber,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w700),
+            ),
+          ),
+        ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(30),
-            bottomRight: Radius.circular(30),
+            bottomLeft: Radius.circular(11),
+            bottomRight: Radius.circular(11),
           ),
         ),
         centerTitle: true,
