@@ -39,7 +39,7 @@ class _Assignment2State extends State<Assignment2> {
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        boxColor1 = true;
+                        boxColor1 = !boxColor1;
                       });
                     },
                     child: const Text("Button 1"),
@@ -60,7 +60,7 @@ class _Assignment2State extends State<Assignment2> {
                   ElevatedButton(
                     onPressed: () {
                       setState(() {
-                        boxColor2 = true;
+                        boxColor2 = !boxColor2;
                       });
                     },
                     child: const Text("Button 2"),
