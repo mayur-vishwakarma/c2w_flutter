@@ -301,10 +301,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               const SizedBox(height: 30),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.purple.shade900,width: 2,style: BorderStyle.solid),
-                  borderRadius: const BorderRadius.all(Radius.circular(20))
-                ),
-                height: 300,
+                    border: Border.all(
+                        color: Colors.purple.shade900,
+                        width: 3,
+                        style: BorderStyle.solid),
+                    borderRadius: const BorderRadius.all(Radius.circular(20))),
+                height: 240,
                 child: Image.network(
                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStiPdOjBnrcRowgbrq6mgN5W1dfXdaraLteg&usqp=CAU"),
               ),
