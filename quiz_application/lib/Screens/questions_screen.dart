@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+class SingleQuestionModel {
+  final String? question;
+  final List<String>? options;
+  final int? answer;
+  const SingleQuestionModel({required this.question, required this.options,required this.answer});
+}
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
 
@@ -7,46 +13,48 @@ class QuestionsScreen extends StatefulWidget {
   State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
 
+
+
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  final List<Map<String, dynamic>> _questions = [
-    {
-      "question": "What is Flutter?",
-      "options": [
+  final List _questions = [
+    const SingleQuestionModel(
+      question: "What is Flutter?",
+      options: [
         "Flutter is an open-source UI toolkit",
         "Flutter is an open-source backend development framework",
         "Flutter is an open-source programming language for cross-platform applications",
         "Flutters is a DBMS toolkit"
       ],
-      "answer": 0
-    },
-    {
-      "question":
+      answer: 0
+    ),
+    const SingleQuestionModel(
+      question:
           "Who developed the Flutter Framework and continues to maintain it today?",
-      "options": ["Facebook", "Microsoft", "Google", "Oracle"],
-      "answer": 2
-    },
-    {
-      "question":
+      options: ["Facebook", "Microsoft", "Google", "Oracle"],
+      answer: 2
+    ),
+    const SingleQuestionModel(
+      question:
           "Which programming language is used to build Flutter applications?",
-      "options": ["Go", "Kotlin", "Java", "Dart"],
-      "answer": 3
-    },
-    {
-      "question": "How many types of widgets are there in Flutter?",
-      "options": ["4", "2", "6", "8+"],
-      "answer": 1
-    },
-    {
-      "question":
+      options: ["Go", "Kotlin", "Java", "Dart"],
+      answer: 3
+    ),
+    const SingleQuestionModel(
+      question: "How many types of widgets are there in Flutter?",
+      options: ["4", "2", "6", "8+"],
+      answer: 1
+    ),
+    const SingleQuestionModel(
+      question:
           "What are some key advantages of Flutter over alternate frameworks?",
-      "options": [
+      options: [
         "All Options",
         "Rapid cross-platform application development and debugging tools",
         "Future-proofed technologies and UI resources",
         "Strong supporting tools for application development and launch"
       ],
-      "answer": 0
-    }
+      answer: 0
+    )
   ];
 
   bool isQuestionScreen = true;
@@ -56,7 +64,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
   Color? checkAnswer(int buttonIndex) {
     if (selectAnswer != -1) {
-      if (buttonIndex == _questions[count]["answer"]) {
+      if (buttonIndex == _questions[count].answer) {
         return Colors.green;
       } else if (selectAnswer == buttonIndex) {
         return Colors.red;
@@ -82,7 +90,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       ));
       return;
     }
-    if (selectAnswer == _questions[count]["answer"]) {
+    if (selectAnswer == _questions[count].answer) {
       correctAnswerCount++;
     }
 
@@ -162,7 +170,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 width: MediaQuery.of(context).size.width * .7,
                 child: Center(
                   child: Text(
-                    "Q.  ${_questions[count]["question"]}",
+                    "Q.  ${_questions[count].question}",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
@@ -187,7 +195,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(30))),
                     backgroundColor: checkAnswer(0)),
                 child: Text(
-                  "A. ${_questions[count]["options"][0]}",
+                  "A. ${_questions[count].options[0]}",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.purple.shade50),
                 ),
@@ -215,7 +223,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(30))),
                     backgroundColor: checkAnswer(1)),
                 child: Text(
-                  "B. ${_questions[count]["options"][1]}",
+                  "B. ${_questions[count].options[1]}",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.purple.shade50),
                 ),
@@ -243,7 +251,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(30))),
                     backgroundColor: checkAnswer(2)),
                 child: Text(
-                  "C. ${_questions[count]["options"][2]}",
+                  "C. ${_questions[count].options[2]}",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.purple.shade50),
                 ),
@@ -271,7 +279,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(30))),
                     backgroundColor: checkAnswer(3)),
                 child: Text(
-                  "D. ${_questions[count]["options"][3]}",
+                  "D. ${_questions[count].options[3]}",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.purple.shade50),
                 ),
