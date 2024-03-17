@@ -203,10 +203,10 @@ class _LoginPageState extends State<LoginPage> {
                           showSnackbar();
                         }
                       },
-                      child: const Text(
+                      child: Text(
                         "Login",
-                        style: TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 1),
+                        style: GoogleFonts.quicksand(
+                            color: const Color.fromRGBO(255, 255, 255, 1),
                             fontSize: 25,
                             fontWeight: FontWeight.w700),
                       ),
