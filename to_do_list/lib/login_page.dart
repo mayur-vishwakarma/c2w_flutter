@@ -164,6 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                         color: Color.fromRGBO(0, 139, 148, 1)),
                     child: TextButton(
                       onPressed: () async {
+                        FocusScope.of(context).unfocus();
                         bool islogin = false;
                         bool isvalid = _globalKey.currentState!.validate();
 
