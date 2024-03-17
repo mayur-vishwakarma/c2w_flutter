@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-
+import 'package:to_do_list/login_page.dart';
 
 class TodoApplication extends StatefulWidget {
   const TodoApplication({super.key});
@@ -244,6 +244,20 @@ class _TodoApplicationState extends State<TodoApplication> {
         ),
       ),
       appBar: AppBar(
+        leading: null,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: (ctx) {
+                  return const LoginPage();
+                }));
+              },
+              icon: const Icon(
+                Icons.logout_outlined,
+                color: Color.fromRGBO(255, 255, 255, 1),
+              ))
+        ],
         backgroundColor: const Color.fromRGBO(2, 167, 177, 1),
         centerTitle: true,
         title: Text(
