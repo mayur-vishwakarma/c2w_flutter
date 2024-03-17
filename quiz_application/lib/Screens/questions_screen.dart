@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_application/Screens/login_screen.dart';
 
 class SingleQuestionModel {
   final String? question;
@@ -363,6 +364,33 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   setState(() {
                     isQuestionScreen = true;
                   });
+                },
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: Size(
+                      MediaQuery.of(context).size.width * .75,
+                      45,
+                    ),
+                    maximumSize:
+                        Size(MediaQuery.of(context).size.width * .75, 100),
+                    padding: const EdgeInsets.all(20),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30))),
+                    backgroundColor: Colors.purple.shade900),
+                child: Text(
+                  "Exit Quiz",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.purple.shade50),
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (ctx) {
+                    return const LoginPage();
+                  }));
                 },
               ),
             ],
