@@ -296,117 +296,100 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 30),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        color: Colors.purple.shade900,
-                        width: 3,
-                        style: BorderStyle.solid),
-                    borderRadius: const BorderRadius.all(Radius.circular(20))),
-                height: 240,
-                child: Image.network(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStiPdOjBnrcRowgbrq6mgN5W1dfXdaraLteg&usqp=CAU"),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Text(
-                "Congratulations...",
-                style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.purple.shade900),
-              ),
-              const SizedBox(height: 15),
-              Text(
-                "You Have Completed Quiz...",
-                style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.purple.shade900),
-              ),
-              const SizedBox(height: 15),
-              Text(
-                "Your Score - $correctAnswerCount/${_questions.length}",
-                style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.purple.shade900),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    minimumSize: Size(
-                      MediaQuery.of(context).size.width * .75,
-                      45,
-                    ),
-                    maximumSize:
-                        Size(MediaQuery.of(context).size.width * .75, 100),
-                    padding: const EdgeInsets.all(20),
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30))),
-                    backgroundColor: Colors.purple.shade900),
-                child: Text(
-                  "Reset Quiz",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.purple.shade50),
+          child: Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        "https://img.freepik.com/free-vector/colorful-confetti-background-with-text-space_1017-32374.jpg?w=826&t=st=1710673146~exp=1710673746~hmac=5ecb91be1a2e943852586c9079915247f4dc8e96a942f954e9ce7b63bb1d4fa5"))),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 30),
+                Text(
+                  "Congratulations...",
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.purple.shade900),
                 ),
-                onPressed: () {
-                  count = 0;
-                  selectAnswer = -1;
-                  correctAnswerCount = 0;
-                  setState(() {
-                    isQuestionScreen = true;
-                  });
-                },
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    minimumSize: Size(
-                      MediaQuery.of(context).size.width * .75,
-                      45,
-                    ),
-                    maximumSize:
-                        Size(MediaQuery.of(context).size.width * .75, 100),
-                    padding: const EdgeInsets.all(20),
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30))),
-                    backgroundColor: Colors.purple.shade900),
-                child: Text(
-                  "Exit Quiz",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.purple.shade50),
+                const SizedBox(height: 15),
+                Text(
+                  "You Have Completed Quiz...",
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.purple.shade900),
                 ),
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (ctx) {
-                    return const LoginPage();
-                  }));
-                },
-              ),
-            ],
-          ),
-        ),
-        appBar: AppBar(
-          backgroundColor: Colors.purple.shade100,
-          foregroundColor: Colors.purple.shade900,
-          title: const Text(
-            'Quiz ',
-            style: TextStyle(
-              fontSize: 25,
+                const SizedBox(height: 15),
+                Text(
+                  "Your Score - $correctAnswerCount/${_questions.length}",
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.purple.shade900),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(
+                        MediaQuery.of(context).size.width * .75,
+                        45,
+                      ),
+                      maximumSize:
+                          Size(MediaQuery.of(context).size.width * .75, 100),
+                      padding: const EdgeInsets.all(20),
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30))),
+                      backgroundColor: Colors.purple.shade900),
+                  child: Text(
+                    "Reset Quiz",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.purple.shade50),
+                  ),
+                  onPressed: () {
+                    count = 0;
+                    selectAnswer = -1;
+                    correctAnswerCount = 0;
+                    setState(() {
+                      isQuestionScreen = true;
+                    });
+                  },
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(
+                        MediaQuery.of(context).size.width * .75,
+                        45,
+                      ),
+                      maximumSize:
+                          Size(MediaQuery.of(context).size.width * .75, 100),
+                      padding: const EdgeInsets.all(20),
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30))),
+                      backgroundColor: Colors.purple.shade900),
+                  child: Text(
+                    "Exit Quiz",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.purple.shade50),
+                  ),
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (ctx) {
+                      return const LoginPage();
+                    }));
+                  },
+                ),
+              ],
             ),
           ),
-          centerTitle: true,
         ),
+        
         backgroundColor: Colors.purple.shade50,
       );
     }
