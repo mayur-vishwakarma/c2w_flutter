@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+
+class DailyFlash51 extends StatelessWidget {
+  const DailyFlash51({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SizedBox(
+        height: double.infinity,
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Image.network(
+                width: 250,
+                height: 250,
+                "https://static.vecteezy.com/system/resources/previews/005/879/539/non_2x/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scene-free-vector.jpg"),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text("Mayur Vishwakarma"),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "8459094980",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
