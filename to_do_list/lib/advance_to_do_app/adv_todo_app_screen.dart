@@ -245,273 +245,256 @@ class _AdvanceToDoApplicationState extends State<AdvanceToDoApplication> {
                 color: const Color.fromRGBO(255, 255, 255, 1)),
           )),
       backgroundColor: const Color.fromRGBO(120, 53, 197, 1),
-      body: SafeArea(
-        child: SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacement(MaterialPageRoute(builder: (ctx) {
-                        return const AdvLoginPage();
-                      }));
-                    },
-                    icon: const Icon(
-                      Icons.logout_outlined,
-                      size: 25,
-                      color: Color.fromRGBO(255, 255, 255, 1.0),
-                    ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacement(MaterialPageRoute(builder: (ctx) {
+                      return const AdvLoginPage();
+                    }));
+                  },
+                  icon: const Icon(
+                    Icons.logout_outlined,
+                    size: 25,
+                    color: Color.fromRGBO(255, 255, 255, 1.0),
                   ),
-                  const SizedBox(
-                    width: 10,
+                ),
+                const SizedBox(
+                  width: 10,
+                )
+              ],
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Good Morning",
+                    style: GoogleFonts.quicksand(
+                        fontSize: 20,
+                        color: const Color.fromRGBO(255, 255, 255, 1)),
+                  ),
+                  Text(
+                    "${widget.user}...",
+                    style: GoogleFonts.quicksand(
+                        fontSize: 30,
+                        color: const Color.fromRGBO(255, 255, 255, 1),
+                        fontWeight: FontWeight.w700),
                   )
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 25),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30)),
+                    color: Color.fromRGBO(197, 194, 194, 1)),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Good Morning",
-                      style: GoogleFonts.quicksand(
-                          fontSize: 20,
-                          color: const Color.fromRGBO(255, 255, 255, 1)),
-                    ),
-                    Text(
-                      "${widget.user}...",
-                      style: GoogleFonts.quicksand(
-                          fontSize: 30,
-                          color: const Color.fromRGBO(255, 255, 255, 1),
-                          fontWeight: FontWeight.w700),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30)),
-                      color: Color.fromRGBO(197, 194, 194, 1)),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: Column(
-                            children: [
-                              Text(
-                                "CREATE TO  DO LIST",
-                                style: GoogleFonts.quicksand(
-                                    fontSize: 15,
-                                    color: const Color.fromRGBO(0, 0, 0, 1),
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              Container(
-                                height: 591,
-                                width: double.infinity,
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(30),
-                                        topRight: Radius.circular(30)),
-                                    color: Color.fromRGBO(255, 255, 255, 1)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 30),
-                                  child: ListView.builder(
-                                      itemCount: tasklist.length,
-                                      itemBuilder: (context, index) {
-                                        return Slidable(
-                                          endActionPane: ActionPane(
-                                            extentRatio: 0.15,
-                                            motion: const ScrollMotion(),
-                                            children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                  horizontal: 10,
-                                                ),
-                                                child: Column(
-                                                  children: [
-                                                    GestureDetector(
-                                                      onTap: () {
-                                                        editTask(
-                                                            tasklist[index]);
-                                                      },
-                                                      child: Container(
-                                                        height: 30,
-                                                        width: 30,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        120,
-                                                                        53,
-                                                                        197,
-                                                                        1),
-                                                                shape: BoxShape
-                                                                    .circle),
-                                                        child: const Icon(
-                                                          Icons.edit,
-                                                          color: Color.fromRGBO(
-                                                              255, 255, 255, 1),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      height: 10,
-                                                    ),
-                                                    GestureDetector(
-                                                      onTap: () {
-                                                        deleteTask(
-                                                            tasklist[index]);
-                                                      },
-                                                      child: Container(
-                                                        height: 30,
-                                                        width: 30,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                                color: Color
-                                                                    .fromRGBO(
-                                                                        120,
-                                                                        53,
-                                                                        197,
-                                                                        1),
-                                                                shape: BoxShape
-                                                                    .circle),
-                                                        child: const Icon(
-                                                          Icons.delete_outline,
-                                                          color: Color.fromRGBO(
-                                                              255, 255, 255, 1),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                          child: Card(
-                                            child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15),
+                        child: Column(
+                          children: [
+                            Text(
+                              "CREATE TO  DO LIST",
+                              style: GoogleFonts.quicksand(
+                                  fontSize: 15,
+                                  color: const Color.fromRGBO(0, 0, 0, 1),
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                              height: 589,
+                              decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(30),
+                                      topRight: Radius.circular(30)),
+                                  color: Color.fromRGBO(255, 255, 255, 1)),
+                              child: ListView.builder(
+                                  itemCount: tasklist.length,
+                                  itemBuilder: (context, index) {
+                                    return Slidable(
+                                      endActionPane: ActionPane(
+                                        extentRatio: 0.15,
+                                        motion: const ScrollMotion(),
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 10, vertical: 10),
+                                            child: Column(
                                               children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(15),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    editTask(tasklist[index]);
+                                                  },
                                                   child: Container(
-                                                    height: 52,
-                                                    width: 52,
+                                                    height: 30,
+                                                    width: 30,
                                                     decoration:
                                                         const BoxDecoration(
-                                                      shape: BoxShape.circle,
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    120,
+                                                                    53,
+                                                                    197,
+                                                                    1),
+                                                            shape: BoxShape
+                                                                .circle),
+                                                    child: const Icon(
+                                                      Icons.edit,
                                                       color: Color.fromRGBO(
-                                                          187, 180, 180, 1),
-                                                    ),
-                                                    child: const Center(
-                                                      child: Icon(
-                                                        Icons.edit,
-                                                        color: Color.fromRGBO(
-                                                            255, 255, 255, 1),
-                                                      ),
+                                                          255, 255, 255, 1),
                                                     ),
                                                   ),
                                                 ),
                                                 const SizedBox(
-                                                  width: 5,
+                                                  height: 10,
                                                 ),
-                                                Expanded(
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        tasklist[index].title,
-                                                        style: GoogleFonts
-                                                            .quicksand(
-                                                                fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 5,
-                                                      ),
-                                                      Text(
-                                                        tasklist[index]
-                                                            .description,
-                                                        style: GoogleFonts
-                                                            .quicksand(
-                                                                fontSize: 10,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500),
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 5,
-                                                      ),
-                                                      Text(
-                                                        tasklist[index].date,
-                                                        style: GoogleFonts
-                                                            .quicksand(
-                                                                fontSize: 10,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500),
-                                                      )
-                                                    ],
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    deleteTask(tasklist[index]);
+                                                  },
+                                                  child: Container(
+                                                    height: 30,
+                                                    width: 30,
+                                                    decoration:
+                                                        const BoxDecoration(
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    120,
+                                                                    53,
+                                                                    197,
+                                                                    1),
+                                                            shape: BoxShape
+                                                                .circle),
+                                                    child: const Icon(
+                                                      Icons.delete_outline,
+                                                      color: Color.fromRGBO(
+                                                          255, 255, 255, 1),
+                                                    ),
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                      .symmetric(
-                                                      horizontal: 10,
-                                                      vertical: 15),
-                                                  child: Checkbox(
-                                                    checkColor: Colors.white,
-                                                    activeColor: Colors.green,
-                                                    shape: const CircleBorder(),
-                                                    onChanged: (val) {
-                                                      setState(() {
-                                                        tasklist[index].done =
-                                                            !tasklist[index]
-                                                                .done;
-                                                      });
-                                                    },
-                                                    value: tasklist[index].done,
-                                                  ),
-                                                )
                                               ],
                                             ),
-                                          ),
-                                        );
-                                      }),
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ]),
-                ),
-              )
-            ],
-          ),
+                                          )
+                                        ],
+                                      ),
+                                      child: Card(
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(15),
+                                              child: Container(
+                                                height: 52,
+                                                width: 52,
+                                                decoration: const BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: Color.fromRGBO(
+                                                      187, 180, 180, 1),
+                                                ),
+                                                child: const Center(
+                                                  child: Icon(
+                                                    Icons.edit,
+                                                    color: Color.fromRGBO(
+                                                        255, 255, 255, 1),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 5,
+                                            ),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    tasklist[index].title,
+                                                    style:
+                                                        GoogleFonts.quicksand(
+                                                            fontSize: 12,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    tasklist[index].description,
+                                                    style:
+                                                        GoogleFonts.quicksand(
+                                                            fontSize: 10,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    tasklist[index].date,
+                                                    style:
+                                                        GoogleFonts.quicksand(
+                                                            fontSize: 10,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 10,
+                                                      vertical: 15),
+                                              child: Checkbox(
+                                                checkColor: Colors.white,
+                                                activeColor: Colors.green,
+                                                shape: const CircleBorder(),
+                                                onChanged: (val) {
+                                                  setState(() {
+                                                    tasklist[index].done =
+                                                        !tasklist[index].done;
+                                                  });
+                                                },
+                                                value: tasklist[index].done,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  }),
+                            )
+                          ],
+                        ),
+                      )
+                    ]),
+              ),
+            )
+          ],
         ),
       ),
     );
