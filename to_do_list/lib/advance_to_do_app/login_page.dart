@@ -73,32 +73,45 @@ class _AdvLoginPageState extends State<AdvLoginPage> {
                     controller: _usernameController,
                     cursorColor: const Color.fromRGBO(128, 53, 197, 1),
                     decoration: const InputDecoration(
-                        label: Text(
-                          "Username",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Color.fromRGBO(128, 53, 197, 1)),
+                      label: Text(
+                        "Username",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromRGBO(128, 53, 197, 1)),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Color.fromRGBO(128, 53, 197, 1),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red, width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromRGBO(128, 53, 197, 1), width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(128, 53, 197, 1), width: 3),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
                         ),
-                        prefixIcon: Icon(
-                          Icons.person,
-                          color: Color.fromRGBO(128, 53, 197, 1),
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(128, 53, 197, 1), width: 3),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
                         ),
-                        errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.red, width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromRGBO(128, 53, 197, 1),
-                                width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromRGBO(128, 53, 197, 1),
-                                width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15)))),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(128, 53, 197, 1), width: 3),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -117,43 +130,57 @@ class _AdvLoginPageState extends State<AdvLoginPage> {
                     obscuringCharacter: "*",
                     cursorColor: const Color.fromRGBO(128, 53, 197, 1),
                     decoration: InputDecoration(
-                        label: const Text(
-                          "Password",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Color.fromRGBO(128, 53, 197, 1)),
+                      label: const Text(
+                        "Password",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromRGBO(128, 53, 197, 1)),
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        color: Color.fromRGBO(128, 53, 197, 1),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isobscure = !isobscure;
+                          });
+                        },
+                        icon: isobscure
+                            ? const Icon(Icons.visibility)
+                            : const Icon(Icons.visibility_off_outlined),
+                        color: const Color.fromRGBO(128, 53, 197, 1),
+                      ),
+                      errorBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red, width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromRGBO(128, 53, 197, 1), width: 3),
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(128, 53, 197, 1), width: 3),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
                         ),
-                        prefixIcon: const Icon(
-                          Icons.lock,
-                          color: Color.fromRGBO(128, 53, 197, 1),
+                      ),
+                      border: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(128, 53, 197, 1), width: 3),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
                         ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              isobscure = !isobscure;
-                            });
-                          },
-                          icon: isobscure
-                              ? const Icon(Icons.visibility)
-                              : const Icon(Icons.visibility_off_outlined),
-                          color: const Color.fromRGBO(128, 53, 197, 1),
+                      ),
+                      errorStyle: const TextStyle(color: Colors.red),
+                      focusedErrorBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(128, 53, 197, 1), width: 3),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
                         ),
-                        errorBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.red, width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
-                        focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromRGBO(128, 53, 197, 1),
-                                width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
-                        enabledBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromRGBO(128, 53, 197, 1),
-                                width: 3),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15)))),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 30,

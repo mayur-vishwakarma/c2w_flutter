@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:to_do_list/basic_to_do_app/login_page.dart';
+import 'package:to_do_list/todo_model/todo_model.dart';
 
 class TodoApplication extends StatefulWidget {
   const TodoApplication({super.key});
@@ -386,16 +387,4 @@ class _TodoApplicationState extends State<TodoApplication> {
       ),
     );
   }
-}
-
-class ToDoModel {
-  String title;
-  String description;
-  String date;
-
-  ToDoModel({
-    required this.title,
-    required this.description,
-    required this.date,
-  });
 }

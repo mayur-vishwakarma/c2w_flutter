@@ -81,11 +81,23 @@ class _LoginPageState extends State<LoginPage> {
                           Icons.person,
                           color: Color.fromRGBO(0, 139, 148, 1),
                         ),
+                        focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(0, 139, 148, 1),
+                                width: 3),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
                         errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.red, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(15))),
                         focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(0, 139, 148, 1),
+                                width: 3),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
+                        border: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromRGBO(0, 139, 148, 1),
                                 width: 3),
@@ -140,6 +152,18 @@ class _LoginPageState extends State<LoginPage> {
                             borderSide: BorderSide(color: Colors.red, width: 3),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(15))),
+                        focusedErrorBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(0, 139, 148, 1),
+                                width: 3),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
+                        border: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(0, 139, 148, 1),
+                                width: 3),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
                         focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color.fromRGBO(0, 139, 148, 1),
@@ -181,15 +205,17 @@ class _LoginPageState extends State<LoginPage> {
                               const SnackBar(
                                 backgroundColor: Colors.green,
                                 content: Text("Login Successful..."),
+                                duration: Duration(milliseconds: 1500),
                               ),
                             );
-                            await Future.delayed(const Duration(seconds: 4));
+                            await Future.delayed(const Duration(seconds: 2));
                             mainPage();
                           } else {
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(
                               backgroundColor: Colors.red,
                               content: Text("Login Failed..."),
+                              duration: Duration(milliseconds: 1500),
                             ));
                           }
                         }
