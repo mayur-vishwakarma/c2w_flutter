@@ -133,8 +133,9 @@ class _AdvLoginPageState extends State<AdvLoginPage> {
                       label: const Text(
                         "Password",
                         style: TextStyle(
-                            fontSize: 20,
-                            color: Color.fromRGBO(128, 53, 197, 1)),
+                          fontSize: 20,
+                          color: Color.fromRGBO(128, 53, 197, 1),
+                        ),
                       ),
                       prefixIcon: const Icon(
                         Icons.lock,
