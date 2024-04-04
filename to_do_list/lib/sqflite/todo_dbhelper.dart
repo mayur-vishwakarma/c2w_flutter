@@ -1,51 +1,50 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:sqflite/sqlite_api.dart';
-import 'package:to_do_list/sqflite/employee_dbhelper.dart';
 import 'package:to_do_list/todo_model/todo_model.dart';
 
 dynamic db;
 
 class Databasee {
-  Future<void> getdata() async {
+  static Future<void> getdata() async {
     db = openDatabase(
       join(await getDatabasesPath(), "TODOdb.db"),
       version: 1,
       onCreate: (db, version) async {
         await db.execute(
-            "CREATE TABLE TODO(title TEXT, description TEXT,Date TEXT);");
+            "CREATE TABLE TODO(id INT PRIMARY KEY AUTOINCREMENT,title TEXT, description TEXT,Date TEXT);");
       },
     );
   }
 
-  Future<void> insert(ToDoModel obj) async {
+  static Future<void> insert(ToDoModel obj) async {
     final localdb = await db;
-    await localdb.insert("TODOdb", obj.toJson(),
+    await localdb.insert("TODO", obj.toJson(),
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  Future<void> update(ToDoModel obj) async {
+  static Future<void> update(ToDoModel obj) async {
     final localdb = await db;
     localdb.update(
-      "TODOdb",
+      "TODO",
       obj.toJson(),
       id: ['id=?'],
+      whereArgs: [obj.id],
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
-  Future<void> delete() async {
+  static Future<void> delete(ToDoModel obj) async {
     final localdb = await db;
     await localdb.delete(
-      "TODOdb",
-      id: ['id=?'],
-      conflictAlgorithm: ConflictAlgorithm.replace,
+      "TODO",
+      where: 'id=?',
+      whereArgs: [obj.id],
     );
   }
 
-  Future<List<ToDoModel>> getallData() async {
+  static Future<List<ToDoModel>> getallData() async {
     final localdb = await db;
-    List<Map<String, dynamic>> listOfTODO = await localdb.query("TODOdb");
+    List<Map<String, dynamic>> listOfTODO = await localdb.query("TODO");
     return List.generate(listOfTODO.length, (i) {
       return ToDoModel(
         title: listOfTODO[i]['title'],

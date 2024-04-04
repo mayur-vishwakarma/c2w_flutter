@@ -5,7 +5,7 @@ import 'package:to_do_list/todo_model/employee_model.dart';
 dynamic database;
 
 class DBHelper {
-  Future<void> createDataBase() async {
+  static Future<void> createDataBase() async {
     database = await openDatabase(
       join(await getDatabasesPath(), "EmployeeDB"),
       version: 1,
@@ -16,25 +16,29 @@ class DBHelper {
     );
   }
 
-  Future<void> insert(Employee obj) async {
+  static Future<void> insert(Employee obj) async {
     final localdb = await database;
     localdb.insert(
-      "EmployeeDB",
+      "EMPLOYEES",
       obj.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
-  Future<List<Employee>> getAllData() async {
+  static Future<List<Employee>> getAllData() async {
     final localdb = await database;
-    List<Map<String, dynamic>> employeeList = await localdb.query("EmployeeDB");
-    return List.generate(employeeList.length, (i) {
-      return Employee(
+    List<Map<String, dynamic>> employeeList = await localdb.query("EMPLOYEES");
+    return List.generate(
+      employeeList.length,
+      (i) {
+        return Employee(
           empId: employeeList[i]['empId'],
           empName: employeeList[i]['empName'],
           salary: employeeList[i]["salary"],
           companyName: employeeList[i]["companyName"],
-          loc: employeeList[i]["loc"]);
-    });
+          loc: employeeList[i]["loc"],
+        );
+      },
+    );
   }
 }

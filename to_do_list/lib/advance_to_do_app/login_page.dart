@@ -200,11 +200,14 @@ class _AdvLoginPageState extends State<AdvLoginPage> {
 
                         void mainPage() {
                           Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (ctx) {
-                            return AdvanceToDoApplication(
-                              user: name,
-                            );
-                          }));
+                            MaterialPageRoute(
+                              builder: (ctx) {
+                                return AdvanceToDoApplication(
+                                  user: name,
+                                );
+                              },
+                            ),
+                          );
                         }
 
                         void showSnackbar() async {

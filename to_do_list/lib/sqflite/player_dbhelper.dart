@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 dynamic database;
 
 class DbHelper {
-  Future<void> createDataBase() async {
+  static Future<void> createDataBase() async {
     database = await openDatabase(
       join(await getDatabasesPath(), "PLAYERSDB"),
       version: 1,
@@ -16,7 +16,7 @@ class DbHelper {
     );
   }
 
-  Future<void> insert(Player obj) async {
+  static Future<void> insert(Player obj) async {
     final localDB = await database;
     localDB.insert(
       "PLAYERDB",
@@ -25,7 +25,7 @@ class DbHelper {
     );
   }
 
-  Future<List<Player>> getPlayersData() async {
+  static Future<List<Player>> getPlayersData() async {
     final localdb = await database;
     List<Map<String, dynamic>> playersList = await localdb.query("PLAYERSDB");
     return List.generate(playersList.length, (i) {
