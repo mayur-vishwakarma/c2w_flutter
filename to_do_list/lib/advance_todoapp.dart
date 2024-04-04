@@ -570,9 +570,9 @@ class DataBase {
     return List.generate(tasklist.length, (i) {
       return ToDoModel(
         id: tasklist[i]['id'],
-        title: tasklist[i]['title'] ?? "",
-        description: tasklist[i]["description"] ?? "",
-        date: tasklist[i]["date"] ?? "",
+        title: tasklist[i]['title'],
+        description: tasklist[i]["description"],
+        date: tasklist[i]["date"],
       );
     });
   }
