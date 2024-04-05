@@ -74,19 +74,19 @@ class _AdvanceToDoApplicationState extends State<AdvanceToDoApplication> {
           description: descController.text.trim(),
           date: dateController.text.trim(),
         );
-        print(newTask);
         await DataBase.insertIntoDataBase(newTask);
       } else {
         obj!.id = obj.id;
         obj.title = titleController.text.trim();
         obj.description = descController.text.trim();
         obj.date = dateController.text.trim();
-        print(obj);
+
         await DataBase.updateIntoDataBase(obj);
       }
-      setState(() {});
       clearController();
     }
+    getallDatafromDataBase();
+    setState(() {});
   }
 
   void clearController() {
@@ -97,8 +97,8 @@ class _AdvanceToDoApplicationState extends State<AdvanceToDoApplication> {
 
   void deleteTask(ToDoModel obj) async {
     await DataBase.deleteFromDataBase(obj);
+    getallDatafromDataBase();
     setState(() {});
-    print(obj);
   }
 
   void editTask(ToDoModel obj) {
