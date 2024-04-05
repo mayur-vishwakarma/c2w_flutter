@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class DailyFlash62 extends StatelessWidget {
   const DailyFlash62({super.key});

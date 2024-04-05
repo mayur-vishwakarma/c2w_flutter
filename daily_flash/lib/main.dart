@@ -23,16 +23,21 @@
 // import 'package:daily_flash/daily_flash_5/daily_flash_5_3.dart';
 // import 'package:daily_flash/daily_flash_5/daily_flash_5_4.dart';
 //import 'package:daily_flash/daily_flash_5/daily_flash_5_5.dart';
-import 'package:daily_flash/daily_flash_6/daily_flash_6_1.dart';
-import 'package:daily_flash/daily_flash_6/daily_flash_6_2.dart';
-import 'package:daily_flash/daily_flash_6/daily_flash_6_3.dart';
-import 'package:daily_flash/daily_flash_6/daily_flash_6_4.dart';
-import 'package:daily_flash/daily_flash_6/daily_flash_6_5.dart';
-import 'package:daily_flash/daily_flash_7/daily_flash_7_1.dart';
-import 'package:daily_flash/daily_flash_7/daily_flash_7_2.dart';
-import 'package:daily_flash/daily_flash_7/daily_flash_7_3.dart';
-import 'package:daily_flash/daily_flash_7/daily_flash_7_4.dart';
-import 'package:daily_flash/daily_flash_7/daily_flash_7_5.dart';
+// import 'package:daily_flash/daily_flash_6/daily_flash_6_1.dart';
+// import 'package:daily_flash/daily_flash_6/daily_flash_6_2.dart';
+// import 'package:daily_flash/daily_flash_6/daily_flash_6_3.dart';
+// import 'package:daily_flash/daily_flash_6/daily_flash_6_4.dart';
+// import 'package:daily_flash/daily_flash_6/daily_flash_6_5.dart';
+// import 'package:daily_flash/daily_flash_7/daily_flash_7_1.dart';
+// import 'package:daily_flash/daily_flash_7/daily_flash_7_2.dart';
+// import 'package:daily_flash/daily_flash_7/daily_flash_7_3.dart';
+// import 'package:daily_flash/daily_flash_7/daily_flash_7_4.dart';
+// import 'package:daily_flash/daily_flash_7/daily_flash_7_5.dart';
+// import 'package:daily_flash/daily_flash_8/daily_flash_8_1.dart';
+// import 'package:daily_flash/daily_flash_8/daily_flash_8_2.dart';
+// import 'package:daily_flash/daily_flash_8/daily_flash_8_3.dart';
+// import 'package:daily_flash/daily_flash_8/daily_flash_8_4.dart';
+import 'package:daily_flash/daily_flash_8/daily_flash_8_5.dart';
 
 import 'package:flutter/material.dart';
 
@@ -47,7 +52,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DailyFlash75(),
+      home: DailyFlash85(),
     );
   }
 }
