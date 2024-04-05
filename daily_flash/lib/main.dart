@@ -37,7 +37,12 @@
 // import 'package:daily_flash/daily_flash_8/daily_flash_8_2.dart';
 // import 'package:daily_flash/daily_flash_8/daily_flash_8_3.dart';
 // import 'package:daily_flash/daily_flash_8/daily_flash_8_4.dart';
-import 'package:daily_flash/daily_flash_8/daily_flash_8_5.dart';
+// import 'package:daily_flash/daily_flash_8/daily_flash_8_5.dart';
+// import 'package:daily_flash/daily_flash_9/daily_flash_9_1.dart';
+// import 'package:daily_flash/daily_flash_9/daily_flash_9_2.dart';
+// import 'package:daily_flash/daily_flash_9/daily_flash_9_3.dart';
+import 'package:daily_flash/daily_flash_9/daily_flash_9_4.dart';
+import 'package:daily_flash/daily_flash_9/daily_flash_9_5.dart';
 
 import 'package:flutter/material.dart';
 
@@ -52,7 +57,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DailyFlash85(),
+      home: DailyFlash95(),
     );
   }
 }
