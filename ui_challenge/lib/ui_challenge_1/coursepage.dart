@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,25 +19,45 @@ class Coursepage extends StatefulWidget {
 class _CoursepageState extends State<Coursepage> {
   final List<Lecture> lecturelist = [
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
     Lecture(
-        title: "Introduction", subTitile: 'Introduction to Dart Language...'),
+      title: "Introduction",
+      subTitile: 'Introduction to Dart Language...',
+    ),
   ];
 
   @override
