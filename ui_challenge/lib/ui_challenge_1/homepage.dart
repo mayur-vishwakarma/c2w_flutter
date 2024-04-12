@@ -184,125 +184,138 @@ class Homepage extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    decoration: const BoxDecoration(
-                                      color: Color.fromRGBO(25, 0, 56, 1),
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(8),
-                                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  height: 45,
+                                  width: 45,
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromRGBO(25, 0, 56, 1),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  child: const Icon(
+                                    Icons.computer_rounded,
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    size: 30,
                                   ),
-                                  Text(
-                                    "UI/UX",
-                                    style: GoogleFonts.jost(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  )
-                                ],
-                              ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "UI/UX",
+                                  style: GoogleFonts.jost(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                )
+                              ],
                             ),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    decoration: const BoxDecoration(
-                                      color: Color.fromRGBO(25, 0, 56, 1),
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(8),
-                                      ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  height: 45,
+                                  width: 45,
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromRGBO(25, 0, 56, 1),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  child: const Icon(
+                                    Icons.remove_red_eye_outlined,
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    size: 30,
                                   ),
-                                  Text(
-                                    "VISUAL",
-                                    style: GoogleFonts.jost(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  )
-                                ],
-                              ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "VISUAL",
+                                  style: GoogleFonts.jost(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                )
+                              ],
                             ),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    decoration: const BoxDecoration(
-                                      color: Color.fromRGBO(25, 0, 56, 1),
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(8),
-                                      ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  height: 45,
+                                  width: 45,
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromRGBO(25, 0, 56, 1),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  child: const Icon(
+                                    Icons.light,
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    size: 30,
                                   ),
-                                  Text(
-                                    "ILLUSTRATION",
-                                    style: GoogleFonts.jost(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  )
-                                ],
-                              ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "ILLUSTRATION",
+                                  style: GoogleFonts.jost(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                )
+                              ],
                             ),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    height: 45,
-                                    width: 45,
-                                    decoration: const BoxDecoration(
-                                      color: Color.fromRGBO(25, 0, 56, 1),
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(8),
-                                      ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  height: 45,
+                                  width: 45,
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromRGBO(25, 0, 56, 1),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  child: const Icon(
+                                    Icons.photo,
+                                    color: Color.fromRGBO(255, 255, 255, 1),
+                                    size: 30,
                                   ),
-                                  Text(
-                                    "PHOTO",
-                                    style: GoogleFonts.jost(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  )
-                                ],
-                              ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "PHOTO",
+                                  style: GoogleFonts.jost(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                )
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       )
                     ],
                   ),
