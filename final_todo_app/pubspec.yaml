@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
   flutter_slidable: ^3.1.0
   google_fonts: ^6.2.1
   intl: ^0.19.0
@@ -26,3 +27,8 @@ flutter:
   assets:
     - asset/images/
   uses-material-design: true
+
+flutter_icons:
+  image_path: 'asset/images/1.png'
+  android: true
+  ios: trur
