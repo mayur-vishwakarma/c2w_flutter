@@ -22,7 +22,7 @@
 // import 'package:daily_flash/daily_flash_5/daily_flash_5_2.dart';
 // import 'package:daily_flash/daily_flash_5/daily_flash_5_3.dart';
 // import 'package:daily_flash/daily_flash_5/daily_flash_5_4.dart';
-//import 'package:daily_flash/daily_flash_5/daily_flash_5_5.dart';
+// import 'package:daily_flash/daily_flash_5/daily_flash_5_5.dart';
 // import 'package:daily_flash/daily_flash_6/daily_flash_6_1.dart';
 // import 'package:daily_flash/daily_flash_6/daily_flash_6_2.dart';
 // import 'package:daily_flash/daily_flash_6/daily_flash_6_3.dart';
@@ -41,8 +41,14 @@
 // import 'package:daily_flash/daily_flash_9/daily_flash_9_1.dart';
 // import 'package:daily_flash/daily_flash_9/daily_flash_9_2.dart';
 // import 'package:daily_flash/daily_flash_9/daily_flash_9_3.dart';
-import 'package:daily_flash/daily_flash_9/daily_flash_9_4.dart';
-import 'package:daily_flash/daily_flash_9/daily_flash_9_5.dart';
+// import 'package:daily_flash/daily_flash_9/daily_flash_9_4.dart';
+// import 'package:daily_flash/daily_flash_9/daily_flash_9_5.dart';
+// import 'package:daily_flash/daily_flash_10/daily_flash_10_1.dart';
+// import 'package:daily_flash/daily_flash_10/daily_flash_10_2.dart';
+// import 'package:daily_flash/daily_flash_10/daily_flash_10_3.dart';
+// import 'package:daily_flash/daily_flash_10/daily_flash_10_4.dart';
+import 'package:daily_flash/daily_flash_10/daily_flash_10_5.dart';
+
 
 import 'package:flutter/material.dart';
 
@@ -57,7 +63,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DailyFlash95(),
+      home: DailyFlash105(),
     );
   }
 }
