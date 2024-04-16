@@ -48,12 +48,16 @@
 // import 'package:daily_flash/daily_flash_10/daily_flash_10_3.dart';
 // import 'package:daily_flash/daily_flash_10/daily_flash_10_4.dart';
 // import 'package:daily_flash/daily_flash_10/daily_flash_10_5.dart';
-
 // import 'package:daily_flash/daily_flash_11/daily_flash_11_1.dart';
 // import 'package:daily_flash/daily_flash_11/daily_flash_11_2.dart';
 // import 'package:daily_flash/daily_flash_11/daily_flash_11_3.dart';
 // import 'package:daily_flash/daily_flash_11/daily_flash_11_4.dart';
-import 'package:daily_flash/daily_flash_11/daily_flash_11_5.dart';
+// import 'package:daily_flash/daily_flash_11/daily_flash_11_5.dart';
+// import 'package:daily_flash/daily_flash_12/daily_flash_12_1.dart';
+// import 'package:daily_flash/daily_flash_12/daily_flash_12_2.dart';
+// import 'package:daily_flash/daily_flash_12/daily_flash_12_3.dart';
+// import 'package:daily_flash/daily_flash_12/daily_flash_12_4.dart';
+import 'package:daily_flash/daily_flash_12/daily_flash_12_5.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -67,7 +71,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DailyFlash115(),
+      home: DailyFlash125(),
     );
   }
 }
