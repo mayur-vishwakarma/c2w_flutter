@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:ui_challenge/ui_challenge_2/home.dart';
+import 'package:ui_challenge/ui_challenge_2/getstarted.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,7 +12,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: GetStarted(),
     );
   }
 }
