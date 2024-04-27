@@ -224,13 +224,25 @@ class _MainHomePageState extends State<MainHomePage> {
         drawer: const MyDrawer(),
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-          title: Text(
-            "June 2022",
-            style: GoogleFonts.poppins(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: const Color.fromRGBO(33, 33, 33, 1),
-            ),
+          title: Row(
+            children: [
+              Text(
+                "June 2022",
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: const Color.fromRGBO(33, 33, 33, 1),
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              const Icon(
+                Icons.arrow_drop_down_sharp,
+                size: 24,
+                color: Color.fromRGBO(0, 0, 0, 1),
+              ),
+            ],
           ),
           actions: const [
             Icon(
