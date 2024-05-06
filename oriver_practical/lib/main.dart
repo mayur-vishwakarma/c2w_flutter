@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:oriver_practical/controllers/productprovider.dart';
+import 'package:oriver_practical/screen/product_details.dart';
 // import 'package:oriver_practical/screen/product_details.dart';
-import 'package:oriver_practical/screen/product_details_screen.dart';
+// import 'package:oriver_practical/screen/product_details_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MainApp extends StatelessWidget {
       },
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ProductDetailsScreen(),
+        home: GetProductDetails(),
       ),
     );
   }

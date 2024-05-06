@@ -1,4 +1,8 @@
 import "package:flutter/material.dart";
+import "package:oriver_practical/controllers/productprovider.dart";
+import "package:oriver_practical/models/product_model.dart";
+import "package:oriver_practical/screen/product_details_screen.dart";
+import "package:provider/provider.dart";
 
 class GetProductDetails extends StatefulWidget {
   const GetProductDetails({super.key});
@@ -88,7 +92,24 @@ class _GetProductDetailsState extends State<GetProductDetails> {
                   height: 30,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Product pObj = Product(
+                      wishlist: false,
+                      imgUrl: imgUrlController.text.toString(),
+                      name: nameController.text.toString(),
+                      price: priceController.text.toString(),
+                    );
+                    Provider.of<ProductProvider>(context, listen: false)
+                        .addproduct(pObj);
+
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (ctx) {
+                          return const ProductDetailsScreen();
+                        },
+                      ),
+                    );
+                  },
                   child: const Text("Submit"),
                 )
               ],
