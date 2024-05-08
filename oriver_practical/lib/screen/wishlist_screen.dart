@@ -1,48 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:oriver_practical/controllers/productprovider.dart';
 import 'package:oriver_practical/controllers/wishlistprovider.dart';
-import 'package:oriver_practical/screen/wishlist_screen.dart';
 import 'package:provider/provider.dart';
 
-class ProductDetailsScreen extends StatefulWidget {
-  const ProductDetailsScreen({super.key});
+class WishListScreen extends StatefulWidget {
+  const WishListScreen({super.key});
 
   @override
-  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+  State<WishListScreen> createState() => _WishListScreenState();
 }
 
-class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+class _WishListScreenState extends State<WishListScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.amber.shade50,
         appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return const WishListScreen();
-                  }));
-                },
-                icon: const Icon(Icons.favorite))
-          ],
-          backgroundColor: Colors.amber.shade300,
           centerTitle: true,
-          title: const Text(
-            "Product Detail Screen",
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),
+          title: const Text("Wishlist"),
         ),
+        backgroundColor: Colors.white,
         body: Consumer<ProductProvider>(
           builder: (context, value, child) {
             return Padding(
               padding: const EdgeInsets.all(10),
               child: ListView.builder(
-                itemCount: value.productList.length,
+                itemCount:
+                    Provider.of<WishlistProvider>(context).wishlist.length,
                 itemBuilder: (context, index) {
                   return Card(
                     color: Colors.white,
@@ -80,6 +64,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                               listen: false)
                                           .addtoWishlist(
                                               value.productList[index]);
+                                    } else {
+                                      Provider.of<WishlistProvider>(context,
+                                              listen: false)
+                                          .removeFromWishlist(index);
                                     }
                                   },
                                   icon: value.productList[index].wishlist

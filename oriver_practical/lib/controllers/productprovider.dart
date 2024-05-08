@@ -8,7 +8,30 @@ class ProductProvider extends ChangeNotifier {
       name: "Expense Manager",
       price: "350",
     ),
+    Product(
+      imgUrl: "assets/images/1.jpg",
+      name: "house Manager",
+      price: "800",
+    ),
+    Product(
+      imgUrl: "assets/images/1.jpg",
+      name: "Mobile Manager",
+      price: "900",
+    ),
   ];
+
+  List<Product> wishlist = [];
+
+  void addtoWishlist(Product pobj) {
+    wishlist.add(pobj);
+    notifyListeners();
+  }
+
+  void removeFromWishlist(int index) {
+    wishlist.removeAt(index);
+    notifyListeners();
+  }
+
   void addproduct(Product pObj) {
     productList.add(pObj);
     notifyListeners();
