@@ -1,3 +1,4 @@
+import 'package:advance_todo_app/my_db_helper.dart';
 import 'package:advance_todo_app/task_model.dart';
 
 import 'package:flutter/material.dart';
@@ -19,53 +20,53 @@ class _MainScreenState extends State<MainScreen> {
   TextEditingController dateController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+  MyDBHelper dbHelper = MyDBHelper();
+  List<Task> task = [];
 
-  List<Task> task = [
-    Task(
-        title: "Lorem Ipsum is simply setting industry. ",
-        description:
-            "Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        date: "20 Nov 2024",
-        ischecked: false),
-    Task(
-        title: "Lorem Ipsum is simply setting industry. ",
-        description:
-            "Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,,,,Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        date: "20 Nov 2024",
-        ischecked: false),
-    Task(
-        title: "Lorem Ipsum is simply setting industry. ",
-        description:
-            "Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        date: "20 Nov 2024",
-        ischecked: false),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    getTaskfromDatabase();
+    setState(() {});
+  }
 
-  void submitForm(bool isEdit, [Task? updateTask]) {
+  Future<void> getTaskfromDatabase() async {
+    database = MyDBHelper.openConnection();
+    task = await MyDBHelper.getAllTask();
+    setState(() {});
+  }
+
+  void submitForm(bool isEdit, [Task? updateTask]) async {
     if (_formKey.currentState!.validate()) {
       if (isEdit && updateTask != null) {
+        updateTask.taskId = updateTask.taskId;
         updateTask.title = titleController.text.trim();
         updateTask.description = descriprionController.text.trim();
         updateTask.date = dateController.text.trim();
+        updateTask.ischecked = updateTask.ischecked;
+        await dbHelper.updateTask(updateTask);
       } else {
-        task.add(
-          Task(
-              title: titleController.text.trim(),
-              description: descriprionController.text.trim(),
-              date: dateController.text.trim(),
-              ischecked: false),
-        );
+        Task obj = Task(
+            title: titleController.text.trim(),
+            description: descriprionController.text.trim(),
+            date: dateController.text.trim(),
+            ischecked: 0);
+
+        await dbHelper.addTask(obj);
       }
-
-      FocusScope.of(context).unfocus();
-      Navigator.pop(context);
-
-      titleController.clear();
-      descriprionController.clear();
-      dateController.clear();
-
+      clearControllers();
+      await getTaskfromDatabase();
       setState(() {});
     }
+  }
+
+  void clearControllers() {
+    FocusScope.of(context).unfocus();
+    Navigator.pop(context);
+
+    titleController.clear();
+    descriprionController.clear();
+    dateController.clear();
   }
 
   void selectDate() async {
@@ -437,182 +438,210 @@ class _MainScreenState extends State<MainScreen> {
                             itemCount: task.length,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              return Slidable(
-                                direction: Axis.horizontal,
-                                closeOnScroll: true,
-                                endActionPane: ActionPane(
-                                  motion: const ScrollMotion(),
-                                  extentRatio: 0.13,
-                                  children: [
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              FocusScope.of(context).unfocus();
-                                            });
-                                            titleController.text =
-                                                task[index].title;
-                                            descriprionController.text =
-                                                task[index].description;
-                                            dateController.text =
-                                                task[index].date;
-                                            showbottomSheet(true, task[index]);
-                                          },
-                                          child: Container(
-                                            margin: const EdgeInsets.symmetric(
-                                                vertical: 2, horizontal: 10),
-                                            height: 30,
-                                            width: 32,
-                                            decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Color.fromRGBO(
-                                                  89, 57, 241, 1),
-                                            ),
-                                            child: const Icon(
-                                              size: 20,
-                                              Icons.edit_outlined,
-                                              color: Color.fromRGBO(
-                                                  255, 255, 255, 1),
-                                            ),
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              FocusScope.of(context).unfocus();
-                                            });
-                                            task.remove(task[index]);
-                                            setState(() {});
-                                          },
-                                          child: Container(
-                                            margin: const EdgeInsets.symmetric(
-                                                vertical: 2, horizontal: 10),
-                                            height: 30,
-                                            width: 32,
-                                            decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Color.fromRGBO(
-                                                  89, 57, 241, 1),
-                                            ),
-                                            child: const Icon(
-                                              size: 20,
-                                              Icons.delete_outline,
-                                              color: Color.fromRGBO(
-                                                  255, 255, 255, 1),
-                                            ),
-                                          ),
-                                        )
-                                      ],
+                              return task.isEmpty
+                                  ? Text(
+                                      "No Task Pending",
+                                      style: GoogleFonts.quicksand(
+                                        fontSize: 8,
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color.fromRGBO(0, 0, 0, 1),
+                                      ),
                                     )
-                                  ],
-                                ),
-                                child: Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(vertical: 3),
-                                  decoration: const BoxDecoration(
-                                      color: Color.fromRGBO(255, 255, 255, 1),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            blurRadius: 20,
-                                            spreadRadius: 0,
-                                            offset: Offset(0, 4),
-                                            color:
-                                                Color.fromRGBO(0, 0, 0, 0.08))
-                                      ]),
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 15, vertical: 10),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: 52,
-                                        width: 52,
+                                  : Slidable(
+                                      direction: Axis.horizontal,
+                                      closeOnScroll: true,
+                                      endActionPane: ActionPane(
+                                        motion: const ScrollMotion(),
+                                        extentRatio: 0.13,
+                                        children: [
+                                          Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              GestureDetector(
+                                                onTap: () {
+                                                  titleController.text =
+                                                      task[index].title;
+                                                  descriprionController.text =
+                                                      task[index].description;
+                                                  dateController.text =
+                                                      task[index].date;
+                                                  showbottomSheet(
+                                                      true, task[index]);
+                                                },
+                                                child: Container(
+                                                  margin: const EdgeInsets
+                                                      .symmetric(
+                                                      vertical: 2,
+                                                      horizontal: 10),
+                                                  height: 30,
+                                                  width: 32,
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    color: Color.fromRGBO(
+                                                        89, 57, 241, 1),
+                                                  ),
+                                                  child: const Icon(
+                                                    size: 20,
+                                                    Icons.edit_outlined,
+                                                    color: Color.fromRGBO(
+                                                        255, 255, 255, 1),
+                                                  ),
+                                                ),
+                                              ),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  dbHelper
+                                                      .deleteTask(task[index]);
+                                                  setState(() {
+                                                    getTaskfromDatabase();
+                                                  });
+                                                },
+                                                child: Container(
+                                                  margin: const EdgeInsets
+                                                      .symmetric(
+                                                      vertical: 2,
+                                                      horizontal: 10),
+                                                  height: 30,
+                                                  width: 32,
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    color: Color.fromRGBO(
+                                                        89, 57, 241, 1),
+                                                  ),
+                                                  child: const Icon(
+                                                    size: 20,
+                                                    Icons.delete_outline,
+                                                    color: Color.fromRGBO(
+                                                        255, 255, 255, 1),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      child: Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 3),
                                         decoration: const BoxDecoration(
                                             color: Color.fromRGBO(
-                                                217, 217, 217, 1),
-                                            shape: BoxShape.circle),
-                                        child: SvgPicture.asset(
-                                          fit: BoxFit.scaleDown,
-                                          'assets/svg/iconimg.svg',
-                                          height: 19,
-                                          width: 24,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 15,
-                                      ),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                255, 255, 255, 1),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 20,
+                                                  spreadRadius: 0,
+                                                  offset: Offset(0, 4),
+                                                  color: Color.fromRGBO(
+                                                      0, 0, 0, 0.08))
+                                            ]),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 15, vertical: 10),
+                                        child: Row(
                                           children: [
-                                            Text(
-                                              task[index].title,
-                                              style: GoogleFonts.quicksand(
-                                                  fontSize: 11,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: const Color.fromRGBO(
-                                                      0, 0, 0, 1)),
+                                            Container(
+                                              height: 52,
+                                              width: 52,
+                                              decoration: const BoxDecoration(
+                                                  color: Color.fromRGBO(
+                                                      217, 217, 217, 1),
+                                                  shape: BoxShape.circle),
+                                              child: SvgPicture.asset(
+                                                fit: BoxFit.scaleDown,
+                                                'assets/svg/iconimg.svg',
+                                                height: 19,
+                                                width: 24,
+                                              ),
                                             ),
                                             const SizedBox(
-                                              height: 5,
+                                              width: 15,
                                             ),
-                                            Text(
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                              task[index].description,
-                                              style: GoogleFonts.quicksand(
-                                                  fontSize: 9,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: const Color.fromRGBO(
-                                                      0, 0, 0, 0.7)),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    task[index].title,
+                                                    style:
+                                                        GoogleFonts.quicksand(
+                                                            fontSize: 11,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color: const Color
+                                                                .fromRGBO(
+                                                                0, 0, 0, 1)),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    maxLines: 2,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    task[index].description,
+                                                    style:
+                                                        GoogleFonts.quicksand(
+                                                            fontSize: 9,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color: const Color
+                                                                .fromRGBO(
+                                                                0, 0, 0, 0.7)),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 5,
+                                                  ),
+                                                  Text(
+                                                    task[index].date,
+                                                    style:
+                                                        GoogleFonts.quicksand(
+                                                      fontSize: 8,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      color:
+                                                          const Color.fromRGBO(
+                                                              0, 0, 0, 0.7),
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
                                             ),
                                             const SizedBox(
-                                              height: 5,
+                                              width: 10,
                                             ),
-                                            Text(
-                                              task[index].date,
-                                              style: GoogleFonts.quicksand(
-                                                fontSize: 8,
-                                                fontWeight: FontWeight.w400,
-                                                color: const Color.fromRGBO(
-                                                    0, 0, 0, 0.7),
+                                            GestureDetector(
+                                              onTap: () async {
+                                                task[index].ischecked == 0
+                                                    ? task[index].ischecked = 1
+                                                    : task[index].ischecked = 0;
+                                                setState(() {});
+                                                if (task[index].ischecked ==
+                                                    1) {
+                                                  await Future.delayed(
+                                                      const Duration(
+                                                          seconds: 2));
+                                                  task.remove(task[index]);
+                                                  showSnackBars();
+                                                }
+                                              },
+                                              child: Icon(
+                                                color:
+                                                    task[index].ischecked == 1
+                                                        ? const Color.fromRGBO(
+                                                            0, 255, 0, 1)
+                                                        : const Color.fromRGBO(
+                                                            1, 1, 1, 1),
+                                                Icons.check_circle,
+                                                size: 15,
                                               ),
                                             )
                                           ],
                                         ),
                                       ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () async {
-                                          task[index].ischecked =
-                                              !task[index].ischecked;
-                                          setState(() {});
-                                          if (task[index].ischecked) {
-                                            await Future.delayed(
-                                                const Duration(seconds: 2));
-                                            task.remove(task[index]);
-                                            showSnackBars();
-                                          }
-                                        },
-                                        child: Icon(
-                                          color: task[index].ischecked
-                                              ? const Color.fromRGBO(
-                                                  0, 255, 0, 1)
-                                              : const Color.fromRGBO(
-                                                  1, 1, 1, 1),
-                                          Icons.check_circle,
-                                          size: 15,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              );
+                                    );
                             },
                           )
                         ],

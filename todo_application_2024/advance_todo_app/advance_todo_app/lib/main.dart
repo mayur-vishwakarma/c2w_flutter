@@ -1,7 +1,10 @@
 import 'package:advance_todo_app/main_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MainApp());
 }
 
