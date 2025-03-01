@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:advance_todo_app/task_model.dart';
+import 'package:advance_todo_app/models/task_model.dart';
 import 'package:path/path.dart';
 // import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -27,15 +27,6 @@ class MyDBHelper {
   static Future<List<Task>> getAllTask() async {
     Database localdb = await database;
     List<Map<String, dynamic>> templist = await localdb.query('todo1');
-    // for (int i = 0; i < templist.length; i++) {
-    //   Map<String, dynamic> t = templist[i];
-    //   todoList.add(Task(
-    //     title: t['title'],
-    //     description: t['description'],
-    //     date: t['date'],
-    //     ischecked: 0,
-    //   ));
-    // }
     return List.generate(
       templist.length,
       (i) {

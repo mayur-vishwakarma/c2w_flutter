@@ -1,5 +1,5 @@
 import 'package:advance_todo_app/my_db_helper.dart';
-import 'package:advance_todo_app/task_model.dart';
+import 'package:advance_todo_app/models/task_model.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -8,7 +8,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  const MainScreen({super.key, required this.username});
+  final String username;
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -385,7 +386,7 @@ class _MainScreenState extends State<MainScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 29),
             child: Text(
-              "Mayur...",
+              widget.username,
               style: GoogleFonts.quicksand(
                   fontSize: 30,
                   fontWeight: FontWeight.w600,

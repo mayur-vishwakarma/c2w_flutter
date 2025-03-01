@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1042805198751",
+    "project_id": "fir-integration-38038",
+    "storage_bucket": "fir-integration-38038.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042805198751:android:71ba5cd273b033975f37aa",
+        "android_client_info": {
+          "package_name": "com.example.firebase_integration"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhh_5yGNOrsj0qLTf4ZnEP281ldVI29CM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

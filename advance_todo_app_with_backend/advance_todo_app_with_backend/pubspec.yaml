@@ -1,0 +1,32 @@
+name: advance_todo_app_with_backend
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  cloud_firestore: ^5.5.1
+  firebase_core: ^3.8.1
+  firebase_storage: ^12.3.7
+  flutter:
+    sdk: flutter
+  flutter_slidable: ^3.1.2
+  flutter_svg: ^2.0.16
+  google_fonts: ^6.2.1
+  image_picker: ^1.1.2
+  intl: ^0.20.1
+  path: ^1.9.0
+  sqflite: ^2.3.3+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets: 
+    - assets/svg/
+    - assets/images/
